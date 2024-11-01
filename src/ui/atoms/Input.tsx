@@ -1,28 +1,29 @@
-import React from "react";
+import React from 'react';
+import { InputHTMLAttributes } from 'react';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
-  type?: string;
   name?: string;
   error?: string;
 }
+
 export const Input = ({
   placeholder,
-  type = "text",
   name,
   error,
+  className,
   ...props
 }: InputProps) => {
   return (
-    <div className="flex flex-col mb-4 ">
+    <div className="flex flex-col mb-4">
       <input
-        type={type}
+        type="text" 
         name={name}
         placeholder={placeholder}
-        className={`px-4 py-2 border  rounded-lg text-gray-700 
-            placeholder-gray-400 focus:outline-none focus:ring-2 
-            focus:ring-blue-500 focus:border-transparent
-            ${error ? "border-red-500 focus:ring-red-500" : "border-gray-300"}`}
+        className={`w-full rounded-full border px-4 py-2 
+          ${error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'}
+          placeholder:text-gray-500 focus:border-[#E75A5A] focus:outline-none 
+          transition duration-150 ease-in-out ${className}`}
         {...props}
       />
       {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
