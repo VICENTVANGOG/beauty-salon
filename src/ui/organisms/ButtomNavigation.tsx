@@ -1,8 +1,8 @@
-import { Home, Search, Calendar, MessageSquare, User } from 'lucide-react'
+import { Home, Search, Calendar, MessageSquare, User } from 'lucide-react';
 
 export const BottomNavigation = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t bg-white py-3">
+    <div className="fixed top-0 left-0 right-0 flex items-center justify-around border-b bg-white py-3 shadow-md z-10">
       <button className="flex flex-col items-center gap-1">
         <Home className="h-6 w-6 text-[#E75A5A]" />
         <span className="text-xs text-[#E75A5A]">Home</span>
@@ -24,5 +24,5 @@ export const BottomNavigation = () => {
         <span className="text-xs text-gray-400">Profile</span>
       </button>
     </div>
-  )
-}
+  );
+};

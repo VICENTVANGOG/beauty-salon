@@ -3,9 +3,10 @@ import { BottomNavigation, SalonsSection, SpecialsSection, ServicesSection, Head
 export const HomePage = () => {
   return (
     <div className="min-h-screen bg-white pb-16">
-      <div className="mx-auto max-w-4xl px-4">
-        <Header />
-        <div className="space-y-4">
+   
+      <div className="max-w-7xl mx-auto pt-16 px-4">
+        <div className=" rounded-lg p-6 space-y-4"> 
+          <Header />
           <SpecialsSection />
           <ServicesSection />
           <SalonsSection />

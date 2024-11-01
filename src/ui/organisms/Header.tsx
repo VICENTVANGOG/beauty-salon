@@ -12,9 +12,6 @@ export const Header = () => {
             <span className="font-medium">New York, USA</span>
           </div>
         </button>
-        <button className="rounded-full bg-gray-100 p-2">
-          <User className="h-5 w-5" />
-        </button>
       </div>
       <SearchBar />
     </div>
