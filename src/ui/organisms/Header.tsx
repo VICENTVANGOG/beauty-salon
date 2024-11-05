@@ -1,5 +1,4 @@
 import { MapPin, User } from 'lucide-react'
-import { SearchBar } from '../molecules/index'
 
 export const Header = () => {
   return (

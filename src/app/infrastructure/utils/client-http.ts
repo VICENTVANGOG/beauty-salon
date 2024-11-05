@@ -8,8 +8,10 @@ export class HttpClient {
   }
 
   private async getHeader() {
+
     return {
       "Content-Type": "application/json",
+
     }
   }
 

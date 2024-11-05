@@ -1,8 +1,6 @@
-import { HomePage } from "@/ui/template/homePage";
-
-
+import { redirect } from "next/navigation";
 export default function Home() {
   return (
-    <HomePage/>
+    redirect("/login")
   );
 }
