@@ -13,7 +13,6 @@ export const Header = () => {
           </div>
         </button>
       </div>
-      <SearchBar />
     </div>
   )
 }
