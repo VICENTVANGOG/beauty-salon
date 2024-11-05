@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { SalonCard } from '../molecules/index';
 import { SearchBar } from '../molecules/index';
 
-import { HttpClient } from '@/app/infrastructure/utils/index'; 
+import { ServicesService } from '@/app/infrastructure/services/service.service';  // Importa el servicio que creaste
 
 export interface Specialist {
   id: string;
@@ -33,7 +33,7 @@ export interface Review {
 }
 
 export interface Salon {
-  id: React.Key | null | undefined; 
+  id: React.Key | null | undefined;
   image: string;
   name: string;
   rating: number;
@@ -52,35 +52,49 @@ export interface Salon {
   hours?: string;
 }
 
-const httpClient = new HttpClient();
+const servicesService = new ServicesService();  // Instancia del servicio
 
 const SalonList: React.FC = () => {
   const [salons, setSalons] = useState<Salon[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchSalons = async () => {
       try {
-        const data = await httpClient.get<any[]>('services');
-        
+        // Usamos la instancia de ServicesService para obtener los datos de los salones
+        const data = await servicesService.findAll(1, 10);  // Página 1, tamaño 10 (ajustar según sea necesario)
 
-        const enrichedData = data.map((service) => ({
+        // Enriquecemos los datos para que coincidan con la estructura de Salon
+        const enrichedData = data.content.map((service: { id: any; name: any; description: any; price: any; }) => ({
           id: service.id,
           name: service.name,
           description: service.description,
           price: service.price,
-          image: 'https://example.com/salon.jpg',
-          rating: 4.5,
-          address: '123 Main St, City',
+          image: 'https://example.com/salon.jpg',  // Imagen por defecto
+          rating: 4.5,  // Calificación por defecto, puedes ajustarlo según la lógica de tu API
+          address: '123 Main St, City',  // Dirección por defecto
         }));
 
         setSalons(enrichedData);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching salons:', error);
+        setError('Hubo un problema al cargar los salones');
+        setLoading(false);
       }
     };
 
     fetchSalons();
   }, []);
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div>

@@ -1,7 +1,8 @@
-import React from 'react'
+import { HomePage } from "@/ui/template/homePage";
 
-export default function ServicesPage() {
+
+export default function Home() {
   return (
-    <div>ServicesPage</div>
-  )
+    <HomePage/>
+  );
 }
