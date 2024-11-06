@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@react-google-maps/api": "^2.20.3",
     "@types/react-router-dom": "^5.3.3",
+    "clsx": "^2.1.1",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.454.0",
     "next": "14.2.15",
     "next-auth": "^4.24.10",
@@ -18,10 +21,13 @@
     "react-dom": "^18",
     "react-hook-form": "^7.53.1",
     "react-router-dom": "^6.27.0",
+    "sweetalert2": "^11.14.5",
     "swiper": "^11.1.14",
+    "tailwind-merge": "^2.5.4",
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

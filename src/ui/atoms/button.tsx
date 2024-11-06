@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'icon';  // Asegúrate de que 'icon' esté en el tipo
 }
 
 export const Button = ({
@@ -12,7 +12,6 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   let baseClasses = 'rounded-full font-medium transition-colors';
-
 
   const variantClasses = {
     primary: 'bg-[#E75A5A] text-white hover:bg-[#E75A5A]/90',
@@ -24,8 +23,8 @@ export const Button = ({
     sm: 'px-3 py-1.5 text-sm',
     md: 'px-4 py-2',
     lg: 'px-6 py-3',
+    icon: 'px-2 py-2', // Asegúrate de agregar una clase para 'icon'
   };
-
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
