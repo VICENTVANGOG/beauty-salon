@@ -10,7 +10,7 @@ export const BottomNavigation = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 flex items-center justify-around border-b bg-white py-3 shadow-md z-10">
-      <button className="flex flex-col items-center gap-1" onClick={() => handleNavigation('/')}>
+      <button className="flex flex-col items-center gap-1" onClick={() => handleNavigation('/dashboard/services')}>
         <Home className="h-6 w-6 text-[#E75A5A]" />
         <span className="text-xs text-[#E75A5A]">Home</span>
       </button>

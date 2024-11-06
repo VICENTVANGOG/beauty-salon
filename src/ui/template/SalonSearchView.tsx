@@ -1,4 +1,3 @@
-
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/ui/molecules/card";
 import { Button } from "@/ui/atoms/index";

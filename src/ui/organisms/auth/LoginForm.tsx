@@ -37,6 +37,14 @@ export const LoginForm = () => {
   const handleLogin = async (data: ILoginRequest) => {
     console.log(data);
 
+    // Verifica si el correo es el correo específico
+    const specificEmail = "admin@correo.com"; // Cambia esto por el correo específico
+    if (data.userName === specificEmail) {
+    
+      window.open("http://localhost:3000/dashboard/admin");
+      return;
+    }
+
     try {
       const result = await signIn("credentials", {
         redirect: false,
