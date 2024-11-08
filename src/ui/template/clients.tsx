@@ -1,6 +1,6 @@
 "use client"; // Esto indica que este archivo debe ejecutarse en el cliente
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Table, TableHead, TableBody, TableRow, TableCell } from "@/ui/organisms/table"; 
 import Modal from "@/ui/organisms/clientModal";  // Importamos el Modal
 import ClientsService from "@/app/infrastructure/services/clientes-services";  // Importamos el servicio

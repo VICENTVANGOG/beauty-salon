@@ -1,4 +1,4 @@
-import { MapPin, User } from 'lucide-react'
+import { MapPin} from 'lucide-react'
 
 export const Header = () => {
   return (
