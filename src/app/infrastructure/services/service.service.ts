@@ -1,5 +1,5 @@
 import { IPostService, IServices } from "@/app/core/application/dto/index";
-import { HttpClient } from "../utils/client-http";
+import  HttpClient  from "../utils/client-http";
 
 export class ServicesService {
     private httpClient: HttpClient;
@@ -27,29 +27,4 @@ export class ServicesService {
             throw error;
         }
     }
-
-    /*
-    async destroy(id: string) {
-        try {
-            const coders = this.httpClient.delete<IVacant[]>(`Coders/${id}`)
-
-            return coders
-        } catch (error) {
-            console.log(error)
-            throw error;
-        }
-    }
-
-
-
-
-    async save(id: string, body:ICreateVacancy) {
-        try {
-            const actualizarCoder = await this.httpClient.put(`vacants/${id}`, body);
-            return actualizarCoder;
-        } catch (error) {
-            console.log(error);
-            throw error;
-        }
-    } */
 }

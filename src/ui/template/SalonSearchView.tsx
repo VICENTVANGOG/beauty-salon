@@ -5,7 +5,6 @@ import { ServicesService } from '@/app/infrastructure/services/service.service';
 import { BottomNavigation } from '../organisms';
 
 const servicesService = new ServicesService();
-
 export default async function ServicesPage() {
   const data = await servicesService.findAll(1, 10);
 

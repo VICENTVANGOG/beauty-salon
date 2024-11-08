@@ -35,28 +35,27 @@ export const authOptions: NextAuthOptions = {
             },
             authorize: async (credentials) => {
                 if (!credentials?.password || !credentials.username) {
-                    console.error("Credenciales faltantes")
-                    return null
+                    console.error("Credenciales faltantes");
+                    return null;
                 }
                 const loginRequest: ILoginRequest = {
                     password: credentials.password,
-                    userName: credentials.username
-                }
+                    userName: credentials.username,
+                };
 
                 try {
-                    const authService = new AuthService()
-                    const response = await authService.login(loginRequest)
+                    const authService = new AuthService();
+                    const response = await authService.login(loginRequest);
 
                     return {
                         email: loginRequest.userName,
                         id: loginRequest.userName,
                         name: loginRequest.userName,
-                        token: response.token
-                    } as AuthUser
-
+                        token: response.token,
+                    } as AuthUser;
                 } catch (error) {
-                    console.log(error)
-                    return Promise.reject(new Error(JSON.stringify(error)))
+                    console.log(error);
+                    return Promise.reject(new Error(JSON.stringify(error)));
                 }
             },
         }),
@@ -69,19 +68,20 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 const authUser = user as AuthUser;
                 token.id = authUser.id;
-                token.token = authUser.token;
+                token.token = authUser.token; // Guardar el token en el JWT
             }
             return token;
         },
         async session({ session, token }) {
             const customSession = session as CustomSession;
             customSession.user.id = (token as AuthToken).id;
-            customSession.user.token = (token as AuthToken).token;
+            customSession.user.token = (token as AuthToken).token; // Pasar el token a la sesión
             return customSession;
         },
-    },
+    }
+    
 };
 
-export default NextAuth(authOptions);
+// Elimina la exportación por defecto y exporta las funciones HTTP explícitamente
 export const GET = NextAuth(authOptions);
 export const POST = NextAuth(authOptions);

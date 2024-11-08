@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -23,7 +25,7 @@ export const Button = ({
     sm: 'px-3 py-1.5 text-sm',
     md: 'px-4 py-2',
     lg: 'px-6 py-3',
-    icon: 'px-2 py-2', // Asegúrate de agregar una clase para 'icon'
+    icon: 'px-2 py-2',
   };
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;

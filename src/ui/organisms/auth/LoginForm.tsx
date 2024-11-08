@@ -1,5 +1,4 @@
-'use client'
-
+"use client"
 import { ErrorResponse, FieldError, ILoginRequest } from "@/app/core/application/dto";
 import { FormField } from "@/ui/molecules";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -37,17 +36,18 @@ export const LoginForm = () => {
   const handleLogin = async (data: ILoginRequest) => {
     console.log(data);
 
-    // Verifica si el correo es el correo específico
-    const specificEmail = "admin@correo.com"; // Cambia esto por el correo específico
+
+    const specificEmail = "mike@gmail.com"; 
     if (data.userName === specificEmail) {
-    
-      window.open("http://localhost:3000/dashboard/admin");
-      return;
+ 
+      router.push("/dashboard/admin");  
+      return;  
     }
 
     try {
+
       const result = await signIn("credentials", {
-        redirect: false,
+        redirect: false,  
         username: data.userName,
         password: data.password,
       });
@@ -59,6 +59,8 @@ export const LoginForm = () => {
         handleError(JSON.parse(result.error));
         return;
       }
+
+ 
       router.push("/dashboard/services");
     } catch (error) {
       console.log(error);
